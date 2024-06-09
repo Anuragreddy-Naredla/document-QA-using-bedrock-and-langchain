@@ -36,6 +36,13 @@ def data_ingestion():
     docs = text_splitter.split(documents)
     return docs
 
+# vector embeddings and vector store.
+def get_vector_store(docs):
+    vectorstore_faiss = FAISS.from_documents(docs, bedrock_embeddings)
+    # storing the vectors into the local
+    vectorstore_faiss.save_local("faiss_index")
+    
+
 
 
 
