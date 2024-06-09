@@ -24,6 +24,19 @@ bedrock = boto3.client(service_name="bedrock-runtime")# it will access all the m
 bedrock_embeddings = BedrockEmbeddings(model_id = "amazon.titan-embed-text-v1", 
                                        client=bedrock)# whcih will present in the bedrock
 
+# data ingestion
+def data_ingestion():
+    """
+    Reading the data then dividing the data into the smaller chunks.
+    """
+    loader = PyPDFDirectoryLoader("data")
+    documents = loader.load()
+    
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=1000)
+    docs = text_splitter.split(documents)
+    return docs
+
+
 
 
 
