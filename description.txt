@@ -1,0 +1,7 @@
+1. This is the document QA search, Here my pdf's all stored in the vector store, from this vector store we can query any information that we 
+   want by using the langchain along with the LLM models and AWS bedrock.
+2. In the data ingestion, we will read all the PDF's from the entire folder then we will split into the chunks then create the embeddings 
+   then we will store all the vector embeddings into the vectorstore(Here we will use the FAISS database.)
+   (Documents => Split into chunks => create embeddings(By using the amazontitan) => store it into the vectorstore)
+3. whenever we will ask any question first of all the similarity search will happen from the vectorstore whatever relevant documents or chunks
+   will get we have to take all these chunks then give it to the LLM model along with the prompt then it will give the answer.
