@@ -41,10 +41,17 @@ def get_vector_store(docs):
     vectorstore_faiss = FAISS.from_documents(docs, bedrock_embeddings)
     # storing the vectors into the local
     vectorstore_faiss.save_local("faiss_index")
-    
 
 
+def get_claude_llm():
+    # create the anthropic model
+    llm = Bedrock(model_id = "ai21.j2-mid-v1", client=bedrock, model_kwargs={'maxTokens':512})   
+    return llm
 
+def get_llama2_llm():
+    # create the llama2 model
+    llm = Bedrock(model_id = "meta.llama2-70b-chat-v1", client=bedrock, model_kwargs={'max_gen_length':512})   
+    return llm
 
 
 
